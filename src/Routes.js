@@ -1,10 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import HomePage from './pages/HomePage';
-import ShortUrl from './pages/ShortUrl';
-import UrlStats from './pages/UrlStats';
-import UrlList from './pages/UrlList';
+import LoanAid from './pages/LoanAid';
+import Result from './pages/Result';
 
 
 
@@ -13,10 +11,8 @@ class Routes extends React.Component {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path='/' component={HomePage} />
-                <Route exact path='/urllist/:username' component={UrlList} />
-                <Route exact path='/:urlId' component={ShortUrl} />
-                <Route exact path='/:urlId/stats' component={UrlStats} />
+                <Route exact path='/' component={LoanAid} />
+                <Route exact path='/result' component={Result} />
                 
                 <Route
                 render={function() {
