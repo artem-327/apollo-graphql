@@ -60,3 +60,52 @@ a.btn-green {
 a.sign-up {
   color: rgb(59,175,87);
 }
+
+.estimate-top {
+  padding-top: 100px;
+}
+
+.estimate-header {
+  color: #999;
+  margin: 0;
+}
+
+.estimate-month {
+  font-size: 20px;
+}
+
+.estimate-body {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #999;
+}
+
+.credit-logo {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.color-grey {
+  color: #999;
+}
+
+.border-none {
+  border: none;
+}
+
+.arrow-down {
+  font-size: 10px;
+}
+
+.btn-green-outline {
+  border: 2px solid rgb(59,175,87);
+  color: rgb(59,175,87);
+  background-color: transparent;
+}
+
+.btn-green-full {
+  color: white;
+  background-color: rgb(59,175,87);
+  border: 2px solid rgb(59,175,87);
+}

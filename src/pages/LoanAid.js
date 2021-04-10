@@ -152,8 +152,33 @@ function LoanAid () {
           <div className={classes.detailsRight}>
             <div className="text-center">
               <CardContent>
-                <div className="text-center">
-                  <p>Estimated Payment</p>
+                <div className="text-center estimate-top">
+                  <p className="estimate-header">Estimated Payment</p>
+                  <h1>$ 3,382<span className="estimate-month">/month</span></h1>
+                </div>
+              </CardContent>
+              <CardContent>
+                <div className="text-center estimate-body">
+                  <p className="estimate-header">Loan amount</p>
+                  <h4>$ 100.000</h4>
+                </div>
+              </CardContent>
+              <CardContent>
+                <div className="text-center estimate-body">
+                  <p className="estimate-header">Down payment</p>
+                  <h4>$ 20.000</h4>
+                </div>
+              </CardContent>
+              <CardContent>
+                <div className="text-center estimate-body">
+                  <p className="estimate-header">Loan term</p>
+                  <h4>2 years</h4>
+                </div>
+              </CardContent>
+              <CardContent>
+                <div className="text-center estimate-body">
+                  <p className="estimate-header">Property tax</p>
+                  <h4>1.2% / year</h4>
                 </div>
               </CardContent>
             </div>
