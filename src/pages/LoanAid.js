@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
 import Slider from '@material-ui/core/Slider';
 import Link from '@material-ui/core/Link';
+import { makeVar } from '@apollo/client';
 
 const PrettoSlider = withStyles({
   root: {
@@ -68,9 +69,17 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
+const homePrice = makeVar('');
+const downPayment = makeVar('');
+const monthDuration = makeVar('');
+const estimatedPayment = makeVar('');
+const typeLoan = makeVar('');
+const currencyType = makeVar('');
 
 function LoanAid () {
   const classes = useStyles();
+
+  homePrice('200');
 
   return (
     <div className="container">
@@ -103,12 +112,12 @@ function LoanAid () {
                 Home Price
                 <div className="row">
                   <div className="col col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                    <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={200} min={50} max={500} />
+                    <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={200} min={50} max={500} onChange={e=>{homePrice(e.target.textContent)}} />
                     <span>$ 50</span>
                     <span className="float-right">$ 500</span>
                   </div>
                   <div className="col col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <input className="form-control" />  
+                    <input className="form-control" value={homePrice()} readOnly />  
                   </div>
                 </div>
               </CardContent>
