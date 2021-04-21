@@ -1,13 +1,30 @@
 import './App.css';
 import Routes from './Routes';
 import LanguageIcon from '@material-ui/icons/Language';
-import {ApolloClient, ApolloProvider, InMemoryCache} from "@apollo/client";
+import {ApolloClient, ApolloProvider, gql, InMemoryCache} from "@apollo/client";
 import React from "react";
 
 const client = new ApolloClient({
     uri: "https://71z1g.sse.codesandbox.io/",
     cache: new InMemoryCache()
 });
+
+const GET_DOGS = gql`
+  query GetDogs {
+    dogs {
+      id
+      breed
+    }
+  }
+`;
+const GET_DOG_PHOTO = gql`
+  query Dog($breed: String!) {
+    dog(breed: $breed) {
+      id
+      displayImage
+    }
+  }
+`;
 
 function App() {
   return (
