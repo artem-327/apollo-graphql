@@ -1,7 +1,7 @@
 import './App.css';
 import Routes from './Routes';
 import LanguageIcon from '@material-ui/icons/Language';
-import {ApolloClient, ApolloProvider, gql, InMemoryCache} from "@apollo/client";
+import {ApolloClient, ApolloProvider, gql, InMemoryCache, NetworkStatus, useQuery} from "@apollo/client";
 import React from "react";
 
 const client = new ApolloClient({
@@ -25,7 +25,22 @@ const GET_DOG_PHOTO = gql`
     }
   }
 `;
+function DogPhoto({ breed }) {
+    const { loading, error, data, refetch, networkStatus } = useQuery(GET_DOG_PHOTO, {
+        variables: { breed },
+        notifyOnNetworkStatusChange: true,
+        // pollInterval: 3000,
+    });
 
+    if (networkStatus === NetworkStatus.refetch) return 'Refetching!';
+    if (loading) return null;
+    if (error) return `Error! ${error}`;
+
+    return (<>
+            <img src={data.dog.displayImage} style={{ height: 300, width: 300 }} alt="dog" />
+            <button onClick={() => refetch()}>Refetch!</button></>
+    );
+}
 function App() {
   return (
       <ApolloProvider client={client}>
